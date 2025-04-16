@@ -1,0 +1,25 @@
+чтобы сделать несколько прото файлов в Makefile, нужно сделать команду
+
+PROTO_REPO = github.com/kafanasyev97/go-microservices-proto
+PROTO_PATH = ./proto
+PROTO_TMP = $(PROTO_PATH)/tmp
+
+# Список всех нужных протофайлов
+PROTO_FILES = auth/auth.proto order/order.proto
+
+generate:
+	rm -rf $(PROTO_PATH)
+	mkdir -p $(PROTO_PATH)
+	git clone https://$(PROTO_REPO) $(PROTO_TMP)
+
+# Генерация всех файлов в списке
+	@for file in $(PROTO_FILES); do \
+		protoc -I $(PROTO_TMP) \
+			--go_out=$(PROTO_PATH) \
+			--go-grpc_out=$(PROTO_PATH) \
+			--go_opt=paths=source_relative \
+			--go-grpc_opt=paths=source_relative \
+			$(PROTO_TMP)/$$file; \
+	done
+
+	rm -rf $(PROTO_TMP)
