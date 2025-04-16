@@ -5,8 +5,7 @@ import (
 	"log"
 	"time"
 
-	// pb "github.com/kafanasyev97/go-microservices/proto/auth"
-	"github.com/kafanasyev97/auth-service/proto/github.com/kafanasyev97/go-microservices-proto/auth"
+	"github.com/kafanasyev97/auth-service/proto/auth"
 	"google.golang.org/grpc"
 )
 
