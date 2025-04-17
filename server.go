@@ -49,6 +49,7 @@ func (s *AuthServer) Register(ctx context.Context, req *auth.RegisterRequest) (*
 	s.mu.Lock()
 	defer s.mu.Unlock()
 
+	fmt.Println("FFFFFFFFFFFFFFFFFFFFFFFFf")
 	var exists bool
 	err := s.db.QueryRow("SELECT EXISTS(SELECT 1 FROM users WHERE username = $1)", req.Username).Scan(&exists)
 	if err != nil {

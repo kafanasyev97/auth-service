@@ -1,11 +1,13 @@
 {
   "name": "auth-service-container",
-  "dockerFile": "../Dockerfile",
-  "context": "..",
-  "runArgs": ["--network=host"],
+  "dockerComposeFile": "../docker-compose.yml",
+  "service": "auth-service",
+  "workspaceFolder": "/workspace",
+  // "context": "..",
+  // "runArgs": ["--network=host"],
   "containerEnv": {
     "DB_HOST": "auth-db",
-    "DB_PORT": "5433",
+    "DB_PORT": "5432",
     "DB_USER": "authuser",
     "DB_PASSWORD": "secret",
     "DB_NAME": "authdb",
@@ -16,7 +18,12 @@
   "postCreateCommand": "go mod tidy",
   "customizations": {
     "vscode": {
-      "extensions": ["golang.go", "ms-azuretools.vscode-docker", "kdcro101.favorites", "ms-vscode.makefile-tools"]
+      "extensions": [
+        "golang.go",
+        "ms-azuretools.vscode-docker",
+        "kdcro101.favorites",
+        "ms-vscode.makefile-tools"
+      ]
     }
   }
 }

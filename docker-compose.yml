@@ -18,3 +18,23 @@ services:
     restart: always
     ports:
       - '6379:6379'
+
+  auth-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: auth-service
+    command: sleep infinity
+    environment:
+      DB_HOST: auth-db
+      DB_PORT: 5432
+      DB_USER: authuser
+      DB_PASSWORD: secret
+      DB_NAME: authdb
+      REDIS_HOST: auth-redis
+      REDIS_PORT: 6379
+    ports:
+      - '50051:50051'
+    depends_on:
+      - auth-db
+      - auth-redis
