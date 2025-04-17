@@ -1,5 +1,22 @@
-// {
-//   "name": "Go Microservice",
-//   "dockerFile": "./Dockerfile",
-//   "context": "."
-// }
+{
+  "name": "auth-service-container",
+  "dockerFile": "../Dockerfile",
+  "context": "..",
+  "runArgs": ["--network=host"],
+  "containerEnv": {
+    "DB_HOST": "auth-db",
+    "DB_PORT": "5433",
+    "DB_USER": "authuser",
+    "DB_PASSWORD": "secret",
+    "DB_NAME": "authdb",
+    "REDIS_HOST": "auth-redis",
+    "REDIS_PORT": "6379"
+  },
+  // "forwardPorts": [50051],
+  "postCreateCommand": "go mod tidy",
+  "customizations": {
+    "vscode": {
+      "extensions": ["golang.go", "ms-azuretools.vscode-docker", "kdcro101.favorites", "ms-vscode.makefile-tools"]
+    }
+  }
+}
