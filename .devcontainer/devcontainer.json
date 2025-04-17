@@ -3,8 +3,6 @@
   "dockerComposeFile": "../docker-compose.yml",
   "service": "auth-service",
   "workspaceFolder": "/workspace",
-  // "context": "..",
-  // "runArgs": ["--network=host"],
   "containerEnv": {
     "DB_HOST": "auth-db",
     "DB_PORT": "5432",

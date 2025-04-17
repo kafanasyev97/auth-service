@@ -35,6 +35,8 @@ services:
       REDIS_PORT: 6379
     ports:
       - '50051:50051'
+    volumes:
+      - ./:/workspace
     depends_on:
       - auth-db
       - auth-redis
