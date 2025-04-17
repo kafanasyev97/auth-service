@@ -22,7 +22,7 @@ func main() {
 
 	// Register
 	regResp, err := client.Register(ctx, &auth.RegisterRequest{
-		Username: "john",
+		Username: "johna",
 		Password: "pass123",
 	})
 	if err != nil {

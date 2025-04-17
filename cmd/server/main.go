@@ -5,6 +5,7 @@ import (
 	"net"
 	"os"
 
+	"github.com/kafanasyev97/auth-service/internal/handler"
 	"github.com/kafanasyev97/auth-service/proto/auth"
 	"google.golang.org/grpc"
 )
@@ -20,8 +21,8 @@ func main() {
 	log.Printf("Подключаемся к БД на %s и Redis на %s\n", dbHost, redisHost)
 
 	grpcServer := grpc.NewServer()
-	authServer := NewAuthServer()
-	auth.RegisterAuthServiceServer(grpcServer, authServer)
+	authHandler := handler.NewAuthHandler()
+	auth.RegisterAuthServiceServer(grpcServer, authHandler)
 
 	log.Println("Auth Service запущен на порту 50051")
 	if err := grpcServer.Serve(lis); err != nil {
