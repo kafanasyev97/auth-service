@@ -1,0 +1,22 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Run Auth Server",
+        "type": "go",
+        "request": "launch",
+        "mode": "auto",
+        "program": "${workspaceFolder}/cmd/server",
+        "env": {
+          "DB_HOST": "auth-db",
+          "DB_PORT": "5432",
+          "DB_USER": "authuser",
+          "DB_PASSWORD": "secret",
+          "DB_NAME": "authdb",
+          "REDIS_HOST": "auth-redis",
+          "REDIS_PORT": "6379"
+        }
+      }
+    ]
+  }
+  
