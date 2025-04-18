@@ -22,8 +22,8 @@ func main() {
 
 	// Register
 	regResp, err := client.Register(ctx, &auth.RegisterRequest{
-		Username: "johna",
-		Password: "pass123",
+		Username: "bess",
+		Password: "pa1234",
 	})
 	if err != nil {
 		log.Fatalf("ошибка регистрации: %v", err)
@@ -32,8 +32,8 @@ func main() {
 
 	// Login
 	loginResp, err := client.Login(ctx, &auth.LoginRequest{
-		Username: "john",
-		Password: "pass123",
+		Username: "bess",
+		Password: "pa1234",
 	})
 	if err != nil {
 		log.Fatalf("ошибка логина: %v", err)
